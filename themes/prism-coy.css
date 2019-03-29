@@ -1,4 +1,5 @@
-/* http://prismjs.com/download.html?themes=prism-coy&languages=markup+css+clike+javascript+actionscript+applescript+aspnet+bash+basic+batch+c+csharp+cpp+coffeescript+ruby+css-extras+go+groovy+java+latex+lua+markdown+objectivec+php+php-extras+powershell+python+sass+scss+sql+swift+yaml&plugins=line-numbers+show-language */
+/* PrismJS 1.16.0
+https://prismjs.com/download.html#themes=prism-coy&languages=markup+css+clike+javascript+apacheconf+c+csharp+bash+cpp+aspnet+coffeescript+cmake+markup-templating+git+less+java+php+json+latex+markdown+makefile+nginx+opencl+sql+python+rust+smarty+vim&plugins=line-numbers+toolbar+show-language+copy-to-clipboard */
 /**
  * prism.js Coy theme for JavaScript, CoffeeScript, CSS and HTML
  * Based on https://github.com/tshedor/workshop-wp-theme (Example: http://workshop.kansan.com/category/sessions/basics or http://workshop.timshedor.com/category/sessions/basics);
@@ -8,8 +9,9 @@
 code[class*="language-"],
 pre[class*="language-"] {
 	color: black;
+	background: none;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	direction: ltr;
+	font-size: 1em;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -31,36 +33,29 @@ pre[class*="language-"] {
 pre[class*="language-"] {
 	position: relative;
 	margin: .5em 0;
-	/* 358ccb */
-	-webkit-box-shadow: -1px 0px 0px 0px #AAA, 0px 0px 0px 1px #dfdfdf;
-	-moz-box-shadow: -1px 0px 0px 0px #AAA, 0px 0px 0px 1px #dfdfdf;
-	box-shadow: -1px 0px 0px 0px #AAA, 0px 0px 0px 1px #dfdfdf;
-	border-left: 10px solid #AAA;
 	overflow: visible;
-	max-height: 30em;
 	padding: 0;
 }
-
-pre[class*="language-"] code {
+pre[class*="language-"]>code {
+	position: relative;
+	border-left: 10px solid #358ccb;
+	box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
 	background-color: #fdfdfd;
-	background-image: -webkit-repeating-linear-gradient(180deg, transparent, transparent 1.5em, rgba(69, 142, 209, 0.04) 1.5em, rgba(69, 142, 209, 0.04) 3em);
-	background-image: -moz-repeating-linear-gradient(180deg, transparent, transparent 1.5em, rgba(69, 142, 209, 0.04) 1.5em, rgba(69, 142, 209, 0.04) 3em);
-	background-image: -ms-repeating-linear-gradient(180deg, transparent, transparent 1.5em, rgba(69, 142, 209, 0.04) 1.5em, rgba(69, 142, 209, 0.04) 3em);
-	background-image: -o-repeating-linear-gradient(180deg, transparent, transparent 1.5em, rgba(69, 142, 209, 0.04) 1.5em, rgba(69, 142, 209, 0.04) 3em);
-	background-image: repeating-linear-gradient(180deg, transparent, transparent 1.5em, rgba(69, 142, 209, 0.04) 1.5em, rgba(69, 142, 209, 0.04) 3em);
+	background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
+	background-size: 3em 3em;
 	background-origin: content-box;
 	background-attachment: local;
 }
 
 code[class*="language"] {
 	max-height: inherit;
-	height: 100%;
+	height: inherit;
 	padding: 0 1em;
 	display: block;
 	overflow: auto;
 }
 
-/* Margin bottom to accomodate shadow */
+/* Margin bottom to accommodate shadow */
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
 	background-color: #fdfdfd;
@@ -73,22 +68,14 @@ pre[class*="language-"] {
 /* Inline code */
 :not(pre) > code[class*="language-"] {
 	position: relative;
-	padding: 0 .2em;
-	margin: 0 0.1em;
-	-webkit-border-radius: 0.3em;
-	-moz-border-radius: 0.3em;
-	-ms-border-radius: 0.3em;
-	-o-border-radius: 0.3em;
+	padding: .2em;
 	border-radius: 0.3em;
-	/* color: #c92c2c; */
+	color: #c92c2c;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	display: inline;
 	white-space: normal;
-	word-break: break-all;
-	word-wrap: break-word;
 }
 
-/*
 pre[class*="language-"]:before,
 pre[class*="language-"]:after {
 	content: '';
@@ -99,8 +86,7 @@ pre[class*="language-"]:after {
 	left: 0.18em;
 	width: 40%;
 	height: 20%;
-	-webkit-box-shadow: 0px 13px 8px #979797;
-	-moz-box-shadow: 0px 13px 8px #979797;
+	max-height: 13em;
 	box-shadow: 0px 13px 8px #979797;
 	-webkit-transform: rotate(-2deg);
 	-moz-transform: rotate(-2deg);
@@ -108,7 +94,6 @@ pre[class*="language-"]:after {
 	-o-transform: rotate(-2deg);
 	transform: rotate(-2deg);
 }
-*/
 
 :not(pre) > code[class*="language-"]:after,
 pre[class*="language-"]:after {
@@ -146,17 +131,15 @@ pre[class*="language-"]:after {
 
 .token.selector,
 .token.attr-name,
+.token.string,
+.token.char,
 .token.function,
 .token.builtin,
 .token.inserted {
 	color: #2f9c0a;
 }
 
-.token.string,
-.token.char {
-	color: #9c2f0a;
-}
-
+.token.operator,
 .token.entity,
 .token.url,
 .token.variable {
@@ -164,19 +147,11 @@ pre[class*="language-"]:after {
 	background: rgba(255, 255, 255, 0.5);
 }
 
-.token.operator {
-	color: #a67f59;
-}
-
 .token.atrule,
 .token.attr-value,
-.token.keyword {
-	color: #1990b8;
-}
-
+.token.keyword,
 .token.class-name {
-	color: #666;
-	text-decoration: underline;
+	color: #1990b8;
 }
 
 .token.regex,
@@ -213,8 +188,6 @@ pre[class*="language-"]:after {
 	pre[class*="language-"]:before,
 	pre[class*="language-"]:after {
 		bottom: 14px;
-		-webkit-box-shadow: none;
-		-moz-box-shadow: none;
 		box-shadow: none;
 	}
 
@@ -228,15 +201,15 @@ pre[class*="language-"]:after {
 }
 
 /* Plugin styles: Line Numbers */
-pre[class*="language-"].line-numbers {
+pre[class*="language-"].line-numbers.line-numbers {
 	padding-left: 0;
 }
 
-pre[class*="language-"].line-numbers code {
+pre[class*="language-"].line-numbers.line-numbers code {
 	padding-left: 3.8em;
 }
 
-pre[class*="language-"].line-numbers .line-numbers-rows {
+pre[class*="language-"].line-numbers.line-numbers .line-numbers-rows {
 	left: 0;
 }
 
@@ -254,14 +227,15 @@ pre .line-highlight {
 	margin-top: 0;
 }
 
-pre.line-numbers {
+pre[class*="language-"].line-numbers {
 	position: relative;
 	padding-left: 3.8em;
 	counter-reset: linenumber;
 }
 
-pre.line-numbers > code {
+pre[class*="language-"].line-numbers > code {
 	position: relative;
+	white-space: inherit;
 }
 
 .line-numbers .line-numbers-rows {
@@ -294,33 +268,63 @@ pre.line-numbers > code {
 			padding-right: 0.8em;
 			text-align: right;
 		}
-div.prism-show-language {
+
+div.code-toolbar {
 	position: relative;
 }
 
-div.prism-show-language > div.prism-show-language-label[data-language] {
-	color: black;
-	background-color: #CFCFCF;
-	display: inline-block;
+div.code-toolbar > .toolbar {
 	position: absolute;
-	bottom: auto;
-	left: auto;
-	top: 0;
-	right: 0;
-	width: auto;
-	height: auto;
-	font-size: 0.9em;
-	border-radius: 0 0 0 5px;
-	padding: 0 0.5em;
-	text-shadow: none;
-	z-index: 1;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-	-webkit-transform: none;
-	-moz-transform: none;
-	-ms-transform: none;
-	-o-transform: none;
-	transform: none;
+	top: .3em;
+	right: .2em;
+	transition: opacity 0.3s ease-in-out;
+	opacity: 0;
+}
+
+div.code-toolbar:hover > .toolbar {
+	opacity: 1;
+}
+
+div.code-toolbar > .toolbar .toolbar-item {
+	display: inline-block;
+}
+
+div.code-toolbar > .toolbar a {
+	cursor: pointer;
+}
+
+div.code-toolbar > .toolbar button {
+	background: none;
+	border: 0;
+	color: inherit;
+	font: inherit;
+	line-height: normal;
+	overflow: visible;
+	padding: 0;
+	-webkit-user-select: none; /* for button */
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+div.code-toolbar > .toolbar a,
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar span {
+	color: #bbb;
+	font-size: .8em;
+	padding: 0 .5em;
+	background: #f5f2f0;
+	background: rgba(224, 224, 224, 0.2);
+	box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+	border-radius: .5em;
+}
+
+div.code-toolbar > .toolbar a:hover,
+div.code-toolbar > .toolbar a:focus,
+div.code-toolbar > .toolbar button:hover,
+div.code-toolbar > .toolbar button:focus,
+div.code-toolbar > .toolbar span:hover,
+div.code-toolbar > .toolbar span:focus {
+	color: inherit;
+	text-decoration: none;
 }
 

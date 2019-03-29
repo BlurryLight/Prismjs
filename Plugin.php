@@ -1,7 +1,7 @@
 <?php
 /**
  * Prismjs代码高亮插件
- * 
+ *
  * @package Prismjs
  * @author WiseClock
  * @version 1.0.8
@@ -78,7 +78,7 @@ class Prismjs_Plugin implements Typecho_Plugin_Interface
         $text = str_replace('language-as"', 'language-actionscript"', $text);
         $text = str_replace('language-js', 'language-javascript', $text);
         $text = str_replace('language-py"', 'language-python"', $text);
-        $text = str_replace('<code>', '<code class="language-unknown">', $text);
+//        $text = str_replace('<code>', '<code class="language-unknown">', $text);
 
         return $text;
     }
